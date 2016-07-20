@@ -51,7 +51,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Cu
     @Override
     public void onBindViewHolder(CustomViewHolder customViewHolder, int position) {
 
-        YoYo.with(Techniques.Wobble).playOn(customViewHolder.mCardView);
+        YoYo.with(Techniques.Tada).playOn(customViewHolder.mCardView);
         Item feedItem = placeItemList.get(position);
 
         //Setting text view title

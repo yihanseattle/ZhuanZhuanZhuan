@@ -53,6 +53,17 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
+        FloatingActionButton fabZhuan = (FloatingActionButton) findViewById(R.id.fabZhuan);
+        if (fabZhuan != null) {
+            fabZhuan.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int randomNum = (int) (Math.random() * placeList.size());
+                    showLocationDialog(placeList.get(randomNum).getPlaceName());
+                }
+            });
+        }
+
 
         // Initialize recycler view
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
@@ -63,6 +74,9 @@ public class MainActivity extends AppCompatActivity {
         buildList();
         adapter = new MyRecyclerAdapter(this, placeList);
         mRecyclerView.setAdapter(adapter);
+
+
+        setTitle("朱亦旻 Beta 测试版");
     }
 
     private void addItem(int color, String lunchOrDinner, String place) {
@@ -73,8 +87,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void buildList() {
         placeList = new ArrayList<>();
-        Item item = new Item(1, "Lunch", "Stony Brook");
-        placeList.add(item);
+//        Item item = new Item(1, "Lunch", "Stony Brook");
+//        placeList.add(item);
     }
 
     @Override
@@ -168,4 +182,36 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void showLocationDialog(String itemName) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle(getString(R.string.your_result));
+        builder.setMessage("你必须选择： " + itemName);
+
+        String positiveText = getString(R.string.accept);
+        builder.setPositiveButton(positiveText,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // positive button logic
+                        Snackbar.make(vvv, "强迫症 solved ...", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                    }
+                });
+
+        String negativeText = getString(R.string.again);
+        builder.setNegativeButton(negativeText,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // negative button logic
+                        Snackbar.make(vvv, "你真难伺候...", Snackbar.LENGTH_SHORT).setAction("Action", null).show();
+                    }
+                });
+
+        AlertDialog dialog = builder.create();
+        // display dialog
+        dialog.show();
+    }
+
+
 }
