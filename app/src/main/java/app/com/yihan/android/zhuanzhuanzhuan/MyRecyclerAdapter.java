@@ -8,7 +8,12 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
+
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 
 import java.util.List;
 
@@ -18,6 +23,8 @@ import java.util.List;
 public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.CustomViewHolder> {
     private List<Item> placeItemList;
     private Context mContext;
+    private int lastPosition = -1;
+    View view;
 
     private String[] colors = new String[]{
             "#FFFFE0", "#FFF0E0", "#FFA000", "#E0B880", "#FFF0F0", "#D08040"
@@ -36,23 +43,22 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Cu
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_row, null);
 
         CustomViewHolder viewHolder = new CustomViewHolder(view);
+
+        this.view = view;
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(CustomViewHolder customViewHolder, int i) {
-        Item feedItem = placeItemList.get(i);
+    public void onBindViewHolder(CustomViewHolder customViewHolder, int position) {
 
-        //Download image using picasso library
-//        Picasso.with(mContext).load(feedItem.getThumbnail())
-//                .error(R.drawable.placeholder)
-//                .placeholder(R.drawable.placeholder)
-//                .into(customViewHolder.imageView);
+        YoYo.with(Techniques.Wobble).playOn(customViewHolder.mCardView);
+        Item feedItem = placeItemList.get(position);
 
         //Setting text view title
         customViewHolder.tvPlaceName.setText(Html.fromHtml(feedItem.getPlaceName()));
         customViewHolder.tvLunchOrDinner.setText(Html.fromHtml(feedItem.getLunchOrDinner()));
         customViewHolder.mCardView.setCardBackgroundColor(Color.parseColor(colors[feedItem.getColorIndex()]));
+
     }
 
     @Override

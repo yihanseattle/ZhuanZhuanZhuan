@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">ZhuanZhuanZhuan</string>
     <string name="action_settings">Settings</string>
+    <string name="go_for_it">加加加</string>
+    <string name="give_up">不加</string>
+    <string name="ready_to_add_new_item">加新卡片</string>
+    <string name="please_enter_content">请输入名称</string>
 </resources>
