@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(adapter);
 
 
-        setTitle("朱亦旻 Beta 测试版");
+        setTitle("转转转");
     }
 
     private void addItem(int color, String lunchOrDinner, String place) {
