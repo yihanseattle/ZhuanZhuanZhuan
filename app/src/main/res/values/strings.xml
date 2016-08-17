@@ -1,11 +1,10 @@
 <resources>
-    <string name="app_name">转转转</string>
+    <string name="app_name">Choice Maker</string>
     <string name="action_settings">Settings</string>
-    <string name="go_for_it">加加加</string>
-    <string name="give_up">不加</string>
-    <string name="ready_to_add_new_item">加 Card</string>
-    <string name="please_enter_content">东西叫啥？</string>
-    <string name="your_result">没办法了，这是结果</string>
-    <string name="accept">我从了</string>
-    <string name="again">什么玩意</string>
+    <string name="go_for_it">Add it</string>
+    <string name="give_up">Cancel</string>
+    <string name="ready_to_add_new_item">Add a New Card</string>
+    <string name="please_enter_content">What is the name?</string>
+    <string name="your_result">You have an result</string>
+    <string name="accept">I accept</string>
 </resources>

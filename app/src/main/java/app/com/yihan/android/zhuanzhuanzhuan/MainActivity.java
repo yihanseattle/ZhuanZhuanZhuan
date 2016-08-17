@@ -132,7 +132,6 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // positive button logic
-//                        Toast.makeText(getApplicationContext(), "Yeah..." + input.getText(), Toast.LENGTH_LONG).show();
                         addItem((int)(Math.random() * 30), "Lunch", input.getText().toString());
                         hideKeyboard(input);
                     }
@@ -144,8 +143,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // negative button logic
-//                        Toast.makeText(getApplicationContext(), "让我再想想...", Toast.LENGTH_SHORT).show();
-                        Snackbar.make(vvv, "让我再想想...", Snackbar.LENGTH_SHORT).setAction("Action", null).show();
+                        Snackbar.make(vvv, "Cancel...", Snackbar.LENGTH_SHORT).setAction("Action", null).show();
                         hideKeyboard(input);
                     }
                 });
@@ -186,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
     private void showLocationDialog(String itemName) {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setTitle(getString(R.string.your_result));
-        builder.setMessage("你必须选择： " + itemName);
+        builder.setMessage("Here is your choice： " + itemName);
 
         String positiveText = getString(R.string.accept);
         builder.setPositiveButton(positiveText,
@@ -194,17 +192,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // positive button logic
-                        Snackbar.make(vvv, "强迫症 solved ...", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-                    }
-                });
-
-        String negativeText = getString(R.string.again);
-        builder.setNegativeButton(negativeText,
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // negative button logic
-                        Snackbar.make(vvv, "你真难伺候...", Snackbar.LENGTH_SHORT).setAction("Action", null).show();
+                        Snackbar.make(vvv, "Problem resolved ...", Snackbar.LENGTH_LONG).setAction("Action", null).show();
                     }
                 });
 
