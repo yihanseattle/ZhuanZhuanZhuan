@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(adapter);
 
 
-        setTitle("转转转");
+        setTitle("Choice Maker");
     }
 
     private void addItem(int color, String lunchOrDinner, String place) {
@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // positive button logic
-                        addItem((int)(Math.random() * 30), "Lunch", input.getText().toString());
+                        addItem((int)(Math.random() * 30), ":)", input.getText().toString());
                         hideKeyboard(input);
                     }
                 });
