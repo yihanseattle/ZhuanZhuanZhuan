@@ -7,4 +7,6 @@
     <string name="please_enter_content">What is the name?</string>
     <string name="your_result">You have an result</string>
     <string name="accept">I accept</string>
+    <string name="btnStart">zhuan</string>
+    <string name="btnAdd">add</string>
 </resources>

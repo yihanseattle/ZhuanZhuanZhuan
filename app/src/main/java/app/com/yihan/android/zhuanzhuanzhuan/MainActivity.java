@@ -3,21 +3,19 @@ package app.com.yihan.android.zhuanzhuanzhuan;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
@@ -30,40 +28,31 @@ public class MainActivity extends AppCompatActivity {
     private List<Item> placeList;
     private RecyclerView mRecyclerView;
     private MyRecyclerAdapter adapter;
+    private Button btnStart;
+    private Button btnAdd;
     View vvv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        if (fab != null) {
-            fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    //                        .setAction("Action", null).show();
-//                    addItem(1, "Dinner", "NYC");
-                    vvv = view;
-                    showLocationDialog();
-                }
-            });
-        }
-
-        FloatingActionButton fabZhuan = (FloatingActionButton) findViewById(R.id.fabZhuan);
-        if (fabZhuan != null) {
-            fabZhuan.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    int randomNum = (int) (Math.random() * placeList.size());
-                    showLocationDialog(placeList.get(randomNum).getPlaceName());
-                }
-            });
-        }
-
+        btnStart = (Button) findViewById(R.id.btnStart);
+        btnStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int randomNum = (int) (Math.random() * placeList.size());
+                showLocationDialog(placeList.get(randomNum).getPlaceName());
+            }
+        });
+        btnAdd = (Button) findViewById(R.id.btnAdd);
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vvv = view;
+                showLocationDialog();
+            }
+        });
 
         // Initialize recycler view
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);

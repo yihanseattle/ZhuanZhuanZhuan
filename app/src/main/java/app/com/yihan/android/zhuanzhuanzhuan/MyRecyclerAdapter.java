@@ -8,8 +8,6 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
@@ -51,7 +49,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Cu
     @Override
     public void onBindViewHolder(CustomViewHolder customViewHolder, int position) {
 
-        YoYo.with(Techniques.Tada).playOn(customViewHolder.mCardView);
+        YoYo.with(Techniques.Landing).playOn(customViewHolder.mCardView);
         Item feedItem = placeItemList.get(position);
 
         //Setting text view title
